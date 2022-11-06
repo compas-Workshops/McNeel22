@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-package:
+    runs-on: ${{ '{{' }} matrix.os {{ '}}' }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+        python-version: ['3.9']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ '{{' }} matrix.python-version {{ '}}' }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ '{{' }} matrix.python-version {{ '}}' }}
+
+      - uses: compas-dev/compas-actions.build@v2
+
+      - name: Run examples Day 1
+        run: |
+          python day1/00-00-placeholder/000a_box.py
