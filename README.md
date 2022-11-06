@@ -30,7 +30,6 @@ Make sure you run this at least once:
 </p>
 </details>
 
-
     (base) conda env create -f https://dfab.link/mcneel22.yml
 
 ### Add to Rhino
