@@ -122,3 +122,7 @@ data/*.json
 # temp stuff
 
 temp/**
+
+# install
+install/mac/miniconda-installer.sh
+install/win/miniconda-installer.exe
