@@ -39,7 +39,7 @@ GOTO install_for_rhino
 
 :update_environment
 ECHO Updating virtual environment...
-@REM CALL %CONDA_BAT% env update -n %CONDA_ENV_NAME% -f https://dfab.link/mcneel22.yml
+CALL %CONDA_BAT% env update -n %CONDA_ENV_NAME% -f https://dfab.link/mcneel22.yml
 ECHO Updating virtual environment...Done!
 
 :install_for_rhino
