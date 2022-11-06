@@ -19,13 +19,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - name: Set up Python ${{ matrix.python-version }} using conda
+        uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: ${{ matrix.python-version }}
+            miniconda-version: latest
+            channels: conda-forge
+            activate-environment: ci_env
+            python-version: ${{ matrix.python-version }}
 
-      - uses: compas-dev/compas-actions.build@v2
+      - name: Install environment
+        shell: bash -l {0}
+        run: |
+            conda env update -f environment.yml -n ci_env
 
       - name: Run examples Day 1
         run: |
-          python day1/00-00-placeholder/000a_box.py
+          conda run -n ci_env python -m compas
+          conda run -n ci_env python day1/02/000_box.py

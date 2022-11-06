@@ -33,7 +33,7 @@ viewer.add(Collection(frames, [{"size": 0.5} for frame in frames]), linewidth=3)
 boxobj = viewer.add(box)
 
 
-@viewer.on(interval=100, frames=len(frames), record=True, record_path='slide.gif')
+@viewer.on(interval=100, frames=len(frames), record=True, record_path="slide.gif")
 def slide(f):
     frame = frames[f]
     transformation = Transformation.from_frame_to_frame(box.frame, frame)

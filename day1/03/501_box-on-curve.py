@@ -26,6 +26,6 @@ viewer.view.camera.target = [0, 0, 4]
 
 viewer.add(curve.to_polyline())
 viewer.add(Polyline(curve.points), show_points=True)
-viewer.add(Collection(frames, [{'size': 0.5} for frame in frames]), linewidth=3)
+viewer.add(Collection(frames, [{"size": 0.5} for frame in frames]), linewidth=3)
 viewer.add(box)
 viewer.show()
