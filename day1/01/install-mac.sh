@@ -48,3 +48,4 @@ if [ ! -d "$REPO_LOCATION" ]; then
 else
     $CONDA_EXE run -n $CONDA_ENV_NAME git -C $REPO_LOCATION pull
 fi
+
