@@ -36,5 +36,15 @@ else
 fi
 
 echo Installing COMPAS for Rhino...
-$CONDA_EXE run -n $CONDA_ENV_NAME python -m compas_rhino.install
+$CONDA_EXE run -n $CONDA_ENV_NAME python -m compas_rhino.install -v 7.0
+if [ $? -ne 0 ]; then
+    $CONDA_EXE run -n $CONDA_ENV_NAME python -m compas_rhino.install -v 6.0
+fi
 echo Installing COMPAS for Rhino... Done!
+
+REPO_LOCATION=~/Documents/mcneel22
+if [ ! -d "$REPO_LOCATION" ]; then
+    $CONDA_EXE run -n $CONDA_ENV_NAME git clone https://github.com/compas-Workshops/mcneel22.git $REPO_LOCATION
+else
+    $CONDA_EXE run -n $CONDA_ENV_NAME git -C $REPO_LOCATION pull
+fi

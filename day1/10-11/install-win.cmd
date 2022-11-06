@@ -54,6 +54,16 @@ CALL %CONDA_BAT% run -n %CONDA_ENV_NAME% python -m compas_rhino.install -v 6.0
 :install_for_rhino_done
 ECHO Installing COMPAS for Rhino...Done!
 
+:clone_repo
+SET REPO_LOCATION=%UserProfile%/Documents/mcneel22
+IF EXIST %REPO_LOCATION% GOTO pull_repo
+CALL %CONDA_BAT% run -n %CONDA_ENV_NAME% git clone https://github.com/compas-Workshops/mcneel22.git %REPO_LOCATION%
+GOTO completed
+
+:pull_repo
+CALL %CONDA_BAT% run -n %CONDA_ENV_NAME% git -C %REPO_LOCATION% pull
+
+:completed
 PAUSE
 EXIT /B %errorlevel%
 
