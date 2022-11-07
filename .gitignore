@@ -124,5 +124,5 @@ data/*.json
 temp/**
 
 # install
-day1//10-11/miniconda-installer.sh
-day1//10-11/miniconda-installer.exe
+day1//01/miniconda-installer.sh
+day1//01/miniconda-installer.exe
