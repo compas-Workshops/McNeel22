@@ -1,9 +1,17 @@
 from compas.geometry import Box
 from compas.geometry import Frame
-
 from compas_view2.app import App
 
-box = Box(frame=Frame.worldXY(), xsize=1, ysize=1, zsize=1)
+
+# set up the world coordinate system
+frame = Frame.worldXY()
+
+# define a box in the coordinate system
+box = Box(frame=frame, xsize=1, ysize=1, zsize=1)
+
+# =============================================================================
+# Viz
+# =============================================================================
 
 viewer = App()
 viewer.view.camera.position = [3, -5, 3]

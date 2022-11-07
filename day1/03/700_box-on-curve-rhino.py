@@ -5,6 +5,7 @@ from compas.geometry import Frame
 from compas.geometry import Transformation
 from compas.utilities import linspace
 
+
 points = [
     Point(0, 0, 0),
     Point(3, 3, 0),

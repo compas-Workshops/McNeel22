@@ -3,6 +3,7 @@ from compas.geometry import NurbsCurve
 from compas.geometry import Box
 from compas.geometry import Frame
 
+
 points = [
     Point(0, 0, 0),
     Point(3, 3, 0),
