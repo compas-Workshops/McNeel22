@@ -28,8 +28,8 @@ for frame in frames:
     boxes.append(box.transformed(transformation))
 
 viewer = App()
-viewer.view.camera.position = [-6, 0, 6]
-viewer.view.camera.target = [0, 0, 4]
+viewer.view.camera.position = [-8, 0, 8]
+viewer.view.camera.look_at([0, 0, 3])
 
 viewer.add(curve.to_polyline())
 viewer.add(Polyline(curve.points), show_points=True)

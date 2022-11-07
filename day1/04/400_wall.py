@@ -1,6 +1,5 @@
 from compas.geometry import Point
 from compas.geometry import NurbsCurve
-from compas.utilities import linspace
 from compas.artists import Artist
 
 # =============================================================================

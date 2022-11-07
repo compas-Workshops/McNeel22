@@ -12,8 +12,8 @@ points = [
 curve = NurbsCurve.from_points(points)
 
 viewer = App()
-viewer.view.camera.position = [-6, 0, 6]
-viewer.view.camera.target = [0, 0, 4]
+viewer.view.camera.position = [-8, 0, 8]
+viewer.view.camera.look_at([0, 0, 3])
 
 viewer.add(curve.to_polyline(), linewidth=3)
 viewer.add(Polyline(curve.points), show_points=True)
