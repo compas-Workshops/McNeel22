@@ -36,4 +36,4 @@ jobs:
         shell: bash -l {0}
         run: |
           conda run -n ci_env python -m compas
-          conda run -n ci_env python day1/02/000_box.py
+          conda run -n ci_env python day1/02/001_box.py
