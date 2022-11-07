@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [macos-latest]
         python-version: ['3.9']
 
     steps:
@@ -33,6 +33,7 @@ jobs:
             conda env update -f environment.yml -n ci_env
 
       - name: Run examples Day 1
+        shell: bash -l {0}
         run: |
           conda run -n ci_env python -m compas
           conda run -n ci_env python day1/02/000_box.py
