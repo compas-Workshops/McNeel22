@@ -1,0 +1,26 @@
+{
+    "name": "Minimal component example",
+    "nickname": "Minimal",
+    "description": "This is an example",
+    "category": "Componentizer",
+    "subcategory": "MAIN",
+    "ghpython": {
+        "isAdvancedMode": true,
+        "inputParameters": [
+            {
+                "name": "x"
+            },
+            {
+                "name": "y"
+            },
+            {
+                "name": "z"
+            }
+        ],
+        "outputParameters": [
+            {
+                "name": "a"
+            }
+        ]
+    }
+}
