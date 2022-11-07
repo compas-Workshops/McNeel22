@@ -1,6 +1,6 @@
 # Discrete Element Modeling to Robotic Fabrication using the COMPAS framework
 
-[🎦 Slides](https://docs.google.com/presentation/d/1kVmHRZoP1LUJlZxQ2h7gCHguQFpE1iUs9BtcrIx7seQ/edit) | [📃 COMPAS docs](https://compas.dev)
+[🎦 Slides](https://docs.google.com/presentation/d/1_knfUUsl8XZBS3tavipoSHpFyM5ZNgmov0zzVQsRTks/edit) | [📃 COMPAS docs](https://compas.dev)
 
 ## Requirements
 
