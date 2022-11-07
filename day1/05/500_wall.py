@@ -9,9 +9,9 @@ This script must be executed in the Grasshopper Python Editor.
 from compas.geometry import Box
 from compas.geometry import Frame
 
-xsize = 0.0615
-ysize = 0.02625
-zsize = 0.0260
+xsize = 0.15
+ysize = 0.08
+zsize = 0.07
 
 brick = Box.from_diagonal(([0, 0, 0], [xsize, ysize, zsize]))
 brick.frame = Frame.worldXY()
