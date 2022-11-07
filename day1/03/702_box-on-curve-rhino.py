@@ -5,6 +5,7 @@ from compas.geometry import Frame
 from compas.utilities import linspace
 from compas.artists import Artist
 
+
 points = [
     Point(0, 0, 0),
     Point(3, 3, 0),
@@ -18,6 +19,10 @@ for t in linspace(curve.domain[0], curve.domain[1], 10):
     frames.append(curve.frame_at(t))
 
 box = Box(Frame.worldXY(), 0.8, 0.5, 0.3)
+
+# =============================================================================
+# Viz
+# =============================================================================
 
 artist = Artist(curve)
 artist.draw()

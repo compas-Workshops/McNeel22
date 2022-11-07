@@ -3,6 +3,7 @@ from compas.geometry import Frame
 from compas.colors import Color
 from compas_view2.app import App
 
+
 box = Box(frame=Frame.worldXY(), xsize=1, ysize=1, zsize=1)
 
 # =============================================================================

@@ -4,11 +4,19 @@ from compas.geometry import Transformation
 from compas.utilities import linspace
 from compas.artists import Artist
 
+# =============================================================================
+# Import
+# =============================================================================
+
 filepath = os.path.join(os.path.dirname(__file__), "session.json")
 data = compas.json_load(filepath)
 
 curve = data["curve"]
 box = data["box"]
+
+# =============================================================================
+# Do
+# =============================================================================
 
 frames = []
 for t in linspace(curve.domain[0], curve.domain[1], 10):
@@ -18,6 +26,10 @@ boxes = []
 for frame in frames:
     transformation = Transformation.from_frame_to_frame(box.frame, frame)
     boxes.append(box.transformed(transformation))
+
+# =============================================================================
+# Viz
+# =============================================================================
 
 Artist.clear()
 

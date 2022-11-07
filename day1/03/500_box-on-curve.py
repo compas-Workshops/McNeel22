@@ -6,6 +6,7 @@ from compas.utilities import linspace
 from compas_view2.app import App
 from compas_view2.objects import Collection
 
+
 points = [
     Point(0, 0, 0),
     Point(3, 3, 0),
@@ -20,6 +21,10 @@ for t in linspace(curve.domain[0], curve.domain[1], 10):
 
 box = Box(frames[0], 0.8, 0.5, 0.3)
 
+# =============================================================================
+# Viz
+# =============================================================================
+
 viewer = App()
 viewer.view.camera.position = [-8, 0, 8]
 viewer.view.camera.look_at([0, 0, 3])
@@ -28,4 +33,5 @@ viewer.add(curve.to_polyline())
 viewer.add(Polyline(curve.points), show_points=True)
 viewer.add(Collection(frames, [{"size": 0.5} for frame in frames]), linewidth=3)
 viewer.add(box)
+
 viewer.show()

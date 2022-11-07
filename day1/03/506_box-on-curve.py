@@ -8,6 +8,7 @@ from compas.utilities import linspace
 from compas_view2.app import App
 from compas_view2.objects import Collection
 
+
 points = [
     Point(0, 0, 0),
     Point(3, 3, 0),
@@ -21,6 +22,10 @@ for t in linspace(curve.domain[0], curve.domain[1], 100):
     frames.append(curve.frame_at(t))
 
 box = Box(Frame.worldXY(), 0.8, 0.5, 0.3)
+
+# =============================================================================
+# Viz
+# =============================================================================
 
 viewer = App()
 viewer.view.camera.position = [-8, 0, 8]

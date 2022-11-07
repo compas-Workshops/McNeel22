@@ -6,6 +6,7 @@ from compas.geometry import Transformation
 from compas.utilities import linspace
 from compas.artists import Artist
 
+
 points = [
     Point(0, 0, 0),
     Point(3, 3, 0),
@@ -24,6 +25,10 @@ boxes = []
 for frame in frames:
     transformation = Transformation.from_frame_to_frame(box.frame, frame)
     boxes.append(box.transformed(transformation))
+
+# =============================================================================
+# Viz
+# =============================================================================
 
 Artist.clear()
 
