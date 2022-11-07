@@ -2,7 +2,7 @@
 This script must be executed in the Grasshopper Python Editor.
 
 1. Drop a new GHPython editor component
-2. Add input parameter `surface` and connect any rhino surface
+2. Add input parameter `surface`, set type hint to `Surface` and connect any rhino surface
 3. Paste this script inside the editor and run
 4. To visualize results, connect `a` out parameter to a `Draw` COMPAS component
 
@@ -14,13 +14,13 @@ from compas.geometry import Vector
 from compas_rhino.conversions import RhinoSurface
 from compas.utilities import linspace
 
-xsize = 0.0615
-ysize = 0.02625
-zsize = 0.0260
-xgap = 0.0018
-zgap = 0.0004
+xsize = 0.15
+ysize = 0.08
+zsize = 0.07
+xgap = 0.0045
+zgap = 0.001
 
-surface = RhinoSurface.from_guid(surface).to_compas()
+surface = RhinoSurface.from_geometry(surface).to_compas()
 
 a = []
 
