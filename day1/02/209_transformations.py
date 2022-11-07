@@ -7,13 +7,21 @@ from compas.geometry import Rotation
 from compas_view2.app import App
 
 
+# create a box in the WCS
+# use different sizes along different axes
 box1 = Box(frame=Frame.worldXY(), xsize=3, ysize=2, zsize=1)
 
+# define a new location for the box
 location = Point(2, 2, 2)
+
+# compute the translation transformation to the new location
 vector = location - box1.frame.point
 translation = Translation.from_vector(vector)
+
+# add a rotation
 rotation = Rotation.from_axis_and_angle([1, 0, 0], radians(90))
 
+# create a transformed copy of the box
 box2 = box1.transformed(translation * rotation)
 
 # =============================================================================

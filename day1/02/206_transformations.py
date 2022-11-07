@@ -1,15 +1,22 @@
+from compas.geometry import Point
 from compas.geometry import Box
 from compas.geometry import Frame
-from compas.geometry import Transformation
+from compas.geometry import Translation
 from compas_view2.app import App
 
-
+# create a box in the WCS
+# use different sizes along different axes
 box1 = Box(frame=Frame.worldXY(), xsize=3, ysize=2, zsize=1)
 
-frame = Frame([2, 2, 2], [1, 0, 0], [0, 0, 1])
-transformation = Transformation.from_frame_to_frame(box1.frame, frame)
+# define a new location
+location = Point(2, 2, 2)
 
-box2 = box1.transformed(transformation)
+# compute the translation transformation to the new location
+vector = location - box1.frame.point
+translation = Translation.from_vector(vector)
+
+# generate a transformed copy of the box
+box2 = box1.transformed(translation)
 
 # =============================================================================
 # Viz

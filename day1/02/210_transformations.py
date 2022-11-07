@@ -1,23 +1,20 @@
-from math import radians
-from compas.geometry import Point
 from compas.geometry import Box
 from compas.geometry import Frame
-from compas.geometry import Translation
-from compas.geometry import Rotation
+from compas.geometry import Transformation
 from compas_view2.app import App
 
-
+# create a box in the WCS
+# use different sizes along different axes
 box1 = Box(frame=Frame.worldXY(), xsize=3, ysize=2, zsize=1)
 
-location = Point(2, 2, 2)
-vector = location - box1.frame.point
-translation = Translation.from_vector(vector)
-rotation = Rotation.from_axis_and_angle([1, 0, 0], radians(90))
+# define a new coordinate frame
+frame = Frame([2, 2, 2], [1, 0, 0], [0, 0, 1])
 
-box2 = box1.copy()
+# compute the transformation from the WCS to the new frame
+transformation = Transformation.from_frame_to_frame(box1.frame, frame)
 
-box2.transform(rotation)
-box2.transform(translation)
+# generate a transformed copy of the box
+box2 = box1.transformed(transformation)
 
 # =============================================================================
 # Viz

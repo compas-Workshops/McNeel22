@@ -27,13 +27,13 @@ box = Box(Frame.worldXY(), 0.8, 0.5, 0.3)
 # Viz
 # =============================================================================
 
-viewer = App()
-viewer.view.camera.position = [-8, 0, 8]
+viewer = App(width=1600, height=900)
+viewer.view.camera.position = [-5, 0, 7]
 viewer.view.camera.look_at([0, 0, 3])
 
 viewer.add(curve.to_polyline())
 viewer.add(Polyline(curve.points), show_points=True)
-viewer.add(Collection(frames, [{"size": 0.5} for frame in frames]), linewidth=3)
+viewer.add(Collection(frames, [{"size": 0.3} for frame in frames]), linewidth=1)
 
 boxobj = viewer.add(box)
 

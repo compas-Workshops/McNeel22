@@ -4,13 +4,17 @@ from compas.geometry import Frame
 from compas.geometry import Translation
 from compas_view2.app import App
 
+# create a box in the world coordinate system
+box1 = Box(frame=Frame.worldXY(), xsize=1, ysize=1, zsize=1)
 
-box1 = Box(frame=Frame.worldXY(), xsize=3, ysize=2, zsize=1)
+# define a new location for the box
+location = Point(0.5, 0.5, 0.5)
 
-location = Point(2, 2, 2)
+# compute a translation transformation
 vector = location - box1.frame.point
 translation = Translation.from_vector(vector)
 
+# generae a transformed copy of the box
 box2 = box1.transformed(translation)
 
 # =============================================================================
@@ -18,7 +22,7 @@ box2 = box1.transformed(translation)
 # =============================================================================
 
 viewer = App()
-viewer.view.camera.position = [6, -10, 5]
+viewer.view.camera.position = [3, -5, 3]
 viewer.view.camera.look_at([0, 0, 0])
 
 viewer.add(box1, show_faces=False)
