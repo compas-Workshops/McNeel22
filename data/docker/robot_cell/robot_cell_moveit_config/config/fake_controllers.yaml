@@ -1,24 +1,13 @@
 controller_list:
-  - name: fake_r1_controller
+  - name: fake_manipulator_controller
     type: $(arg fake_execution_type)
     joints:
-      - r1_shoulder_pan_joint
-      - r1_shoulder_lift_joint
-      - r1_elbow_joint
-      - r1_wrist_1_joint
-      - r1_wrist_2_joint
-      - r1_wrist_3_joint
-  - name: fake_r2_controller
-    type: $(arg fake_execution_type)
-    joints:
-      - r2_shoulder_pan_joint
-      - r2_shoulder_lift_joint
-      - r2_elbow_joint
-      - r2_wrist_1_joint
-      - r2_wrist_2_joint
-      - r2_wrist_3_joint
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
 initial:  # Define initial robot poses per group
-#  - group: r1
-#    pose: home
-
-  []
+  - group: manipulator
+    pose: home

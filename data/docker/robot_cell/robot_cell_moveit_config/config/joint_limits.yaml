@@ -8,62 +8,32 @@ default_acceleration_scaling_factor: 0.1
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
-  r1_elbow_joint:
+  elbow_joint:
     has_velocity_limits: true
     max_velocity: 3.141592653589793
     has_acceleration_limits: false
     max_acceleration: 0
-  r1_shoulder_lift_joint:
+  shoulder_lift_joint:
     has_velocity_limits: true
     max_velocity: 2.094395102393195
     has_acceleration_limits: false
     max_acceleration: 0
-  r1_shoulder_pan_joint:
+  shoulder_pan_joint:
     has_velocity_limits: true
     max_velocity: 2.094395102393195
     has_acceleration_limits: false
     max_acceleration: 0
-  r1_wrist_1_joint:
+  wrist_1_joint:
     has_velocity_limits: true
     max_velocity: 3.141592653589793
     has_acceleration_limits: false
     max_acceleration: 0
-  r1_wrist_2_joint:
+  wrist_2_joint:
     has_velocity_limits: true
     max_velocity: 3.141592653589793
     has_acceleration_limits: false
     max_acceleration: 0
-  r1_wrist_3_joint:
-    has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r2_elbow_joint:
-    has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r2_shoulder_lift_joint:
-    has_velocity_limits: true
-    max_velocity: 2.094395102393195
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r2_shoulder_pan_joint:
-    has_velocity_limits: true
-    max_velocity: 2.094395102393195
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r2_wrist_1_joint:
-    has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r2_wrist_2_joint:
-    has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  r2_wrist_3_joint:
+  wrist_3_joint:
     has_velocity_limits: true
     max_velocity: 3.141592653589793
     has_acceleration_limits: false
