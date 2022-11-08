@@ -59,8 +59,7 @@ ipoints_0 = []
 
 for frame in frames_0:
     plane = Plane(frame.point, frame.xaxis)
-    bbox = Box(Frame(frame.point, frame.yaxis, frame.zaxis), 1, 1, 1)
-    surface = Surface.from_plane(plane, bbox)
+    surface = Surface.from_plane(plane)
 
     points = surface.intersections_with_curve(outer)
     opoints_0.append(points[0])
@@ -95,8 +94,7 @@ params_1.insert(0, params_0[0])
 
 for frame in frames_1:
     plane = Plane(frame.point, frame.xaxis)
-    bbox = Box(Frame(frame.point, frame.yaxis, frame.zaxis), 1, 1, 1)
-    surface = Surface.from_plane(plane, bbox)
+    surface = Surface.from_plane(plane)
 
     points = surface.intersections_with_curve(outer)
     opoints_1.append(points[0])
