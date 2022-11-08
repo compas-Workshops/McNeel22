@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Gonzalo Casas
     author_email: casas@arch.ethz.ch
-    generated_timestamp: 1667727608
+    generated_timestamp: 1657648279

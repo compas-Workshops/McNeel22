@@ -2,62 +2,14 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="robot_cell">
     <xacro:include filename="$(find ur_description)/urdf/inc/ur10e_macro.xacro"/>
 
-    <xacro:ur10e_robot prefix="r1_"/>
-    <xacro:ur10e_robot prefix="r2_"/>
+    <xacro:ur10e_robot prefix=""/>
 
-    <link name="common_base" />
+    <link name="world" />
 
-    <joint name="rcf_r1" type="fixed">
-        <parent link="r1_table" />
-        <child link="r1_base_link" />
-        <origin xyz="0.0 0 0" rpy="0 0 0"/>
-    </joint>
-
-    <joint name="rcf_r2" type="fixed">
-        <parent link="r2_table" />
-        <child link="r2_base_link" />
-        <origin xyz="0.0 0 0" rpy="0 0 0"/>
-    </joint>
-
-    <!-- Tables -->
-    <link name="r1_table">
-        <visual>
-            <geometry>
-                <mesh filename="package://robot_cell_support/meshes/ur10_robot_cell/visual/station_no_table.stl" />
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-        </visual>
-        <collision>
-            <geometry>
-                <mesh filename="package://robot_cell_support/meshes/ur10_robot_cell/collision/station_no_table.stl" />
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-        </collision>
-    </link>
-    <joint name="r1_table_joint" type="fixed">
-        <parent link="common_base" />
-        <child link="r1_table" />
-        <origin rpy="0 0 0" xyz="0.8 0 0.784" />
-    </joint>
-
-    <link name="r2_table">
-        <visual>
-            <geometry>
-                <mesh filename="package://robot_cell_support/meshes/ur10_robot_cell/visual/station_no_table.stl" />
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-        </visual>
-        <collision>
-            <geometry>
-                <mesh filename="package://robot_cell_support/meshes/ur10_robot_cell/collision/station_no_table.stl" />
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0" />
-        </collision>
-    </link>
-    <joint name="r2_table_joint" type="fixed">
-        <parent link="common_base" />
-        <child link="r2_table" />
-        <origin rpy="0 0 ${-pi}" xyz="-0.8 0 0.784" />
+    <joint name="rcf_joint" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
 </robot>
