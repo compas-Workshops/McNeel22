@@ -1,0 +1,10 @@
+<launch>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="unregister_timeout" value="28800" />
+    </include>
+    <include file="$(find ur10e_moveit_config)/launch/demo.launch">
+        <arg name="use_rviz" value="false" />
+    </include>
+    <include file="$(find file_server)/launch/file_server.launch">
+    </include>
+</launch>
