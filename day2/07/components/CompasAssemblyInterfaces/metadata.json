@@ -1,0 +1,30 @@
+{
+    "name": "Detect assembly interfaces",
+    "nickname": "Interfaces",
+    "description": "McNeel22 workshop live coding component",
+    "category": "Assembly",
+    "subcategory": "Interfaces",
+    "ghpython": {
+        "isAdvancedMode": true,
+        "iconDisplay": 2,
+        "inputParameters": [
+            {
+                "name": "assembly"
+            },
+            {
+                "name": "nmax"
+            },
+            {
+                "name": "tmax"
+            },
+            {
+                "name": "amin"
+            }
+        ],
+        "outputParameters": [
+            {
+                "name": "assembly"
+            }
+        ]
+    }
+}
