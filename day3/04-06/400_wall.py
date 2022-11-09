@@ -1,34 +1,53 @@
 import os
 import compas
-import compas_assembly
+from compas.geometry import Translation
+from compas.datastructures import Mesh
 from compas_assembly.datastructures import Assembly
 from compas_assembly.algorithms import assembly_interfaces
 from compas_assembly.viewer import DEMViewer
 from compas_cra.equilibrium import cra_solve
-from compas_cra.equilibrium import rbe_solve
+
 
 HERE = os.path.dirname(__file__)
-ASSEMBLY = os.path.join(HERE, "crossvault-assembly.json")
+DATA = os.path.join(HERE, "wall.json")
+ASSEMBLY = os.path.join(HERE, "wall-assembly.json")
 
 # =============================================================================
-# Block meshes
+# Import
 # =============================================================================
 
-meshes = compas.json_load(compas_assembly.get("crossvault.json"))
+data = compas.json_load(DATA)
+
+params = data["params"]
+curve = data["basecurve"]
+course_0 = data["courses"][0]
+course_1 = data["courses"][1]
+
+# =============================================================================
+# Courses
+# =============================================================================
+
+courses = []
+
+for i in range():
+    boxes = course_1 if i % 2 else course_0
+    courses.append([box.transformed(Translation.from_vector([0, 0, i * box.zsize])) for box in boxes])
 
 # =============================================================================
 # Assembly
 # =============================================================================
 
 assembly = Assembly()
-for mesh in meshes:
-    assembly.add_block_from_mesh(mesh)
+
+for course in courses:
+    for box in course:
+        assembly.add_block_from_mesh(Mesh.from_shape(box))
 
 # =============================================================================
 # Interfaces
 # =============================================================================
 
-assembly_interfaces(assembly, nmax=7, tmax=1e-3, amin=1e-2)
+assembly_interfaces(assembly, tmax=1e-6, amin=1e-2)
 
 # =============================================================================
 # Boundary conditions
@@ -36,20 +55,15 @@ assembly_interfaces(assembly, nmax=7, tmax=1e-3, amin=1e-2)
 
 assembly.unset_boundary_conditions()
 
-nodes = sorted(assembly.nodes(), key=lambda node: assembly.node_point(node).z)[:4]
-for node in nodes:
+nodes = sorted(assembly.nodes(), key=lambda node: assembly.node_point(node).z)
+for node in nodes[: params["N"] - 1]:
     assembly.set_boundary_condition(node)
 
 # =============================================================================
 # Equilibrium
 # =============================================================================
 
-# CRA is too slow for this structure.
-# RBE gives only an approximative result.
-# Ideally, the RBE result can be used to jumpstart the CRA solver
-# But this is not available yet...
-
-# rbe_solve(assembly)
+cra_solve(assembly)
 
 # =============================================================================
 # Export
@@ -62,8 +76,8 @@ compas.json_dump(assembly, ASSEMBLY)
 # =============================================================================
 
 viewer = DEMViewer()
-viewer.view.camera.position = [0, -15, 3]
-viewer.view.camera.look_at([0, 0, 2])
+viewer.view.camera.position = [2, -8, 1]
+viewer.view.camera.look_at([3, 0, 1])
 
 viewer.add_assembly(assembly)
 
