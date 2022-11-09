@@ -1,7 +1,6 @@
 import os
 import compas
 from math import pi
-from compas.geometry import Point, Line
 from compas_assembly.datastructures import Assembly
 from compas_assembly.geometry import Dome
 from compas_assembly.algorithms import assembly_interfaces
@@ -47,7 +46,12 @@ for node in nodes:
 # Equilibrium
 # =============================================================================
 
-cra_solve(assembly, verbose=True)
+# CRA is too slow for this structure.
+# RBE gives only an approximative result.
+# Ideally, the RBE result can be used to jumpstart the CRA solver
+# But this is not available yet...
+
+# cra_solve(assembly, verbose=True)
 
 # =============================================================================
 # Export
